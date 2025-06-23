@@ -59,7 +59,6 @@ def worked_data(usr_crypto: str | None, usr_convert: str | None) -> None:
 
     data: dict = crypto_price_data
 
-    print(data)
     usr_conversion_choise: float = st.number_input(
         label="Choisissez un nombre à convertir:",
         min_value=1,
@@ -88,7 +87,7 @@ def worked_data(usr_crypto: str | None, usr_convert: str | None) -> None:
         if crypto_evolution_data:
             df = pd.DataFrame(crypto_evolution_data["prices"], columns=["days", "prices"])
             df["days"] = pd.to_datetime(df["days"], unit="ms")
-        st.line_chart(df.set_index("days"))
+            st.line_chart(df.set_index("days"))
 
 usr_choises: tuple[str | None, str | None] = call_api.get_usr_choises()
 worked_data(usr_choises[0], usr_choises[1])

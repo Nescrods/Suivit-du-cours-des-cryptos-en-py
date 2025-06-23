@@ -62,10 +62,6 @@ def make_url(
         )
         return rep
     if type_of_demand[0] == "evolution" and type_of_demand[1]:
-        # print("calling evolution")
-        print(
-            f"here the api: {URL_API}coins/{usr_crypto}/market_chart?vs_currency=usd&days=30&interval=daily"
-        )
         rep = requests.get(
             url=f"{URL_API}coins/{usr_crypto}/market_chart",
             params={
